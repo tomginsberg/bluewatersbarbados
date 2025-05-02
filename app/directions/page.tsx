@@ -1,6 +1,4 @@
-import { Plane, Car, MapPin, ShoppingBag, UtensilsCrossed } from "lucide-react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Plane, Car, MapPin, UtensilsCrossed } from "lucide-react";
 
 export default function DirectionsPage() {
   return (
@@ -44,7 +42,7 @@ export default function DirectionsPage() {
               
               <p>Taxis are readily available on arrival and hire car companies have offices at the airport.</p>
               
-              <p>We have good contacts for rental vehicles. They will meet you with a sign at the airport and take you to Blue Waters Villa. Or bring a car to the Villa for you. Very convenient. They offer a discount to guests of Blue Waters Villa. Let us know and we'll give you the discount code to get your discount.</p>
+              <p>We have good contacts for rental vehicles. They will meet you with a sign at the airport and take you to Blue Waters Villa. Or bring a car to the Villa for you. Very convenient. They offer a discount to guests of Blue Waters Villa. Let us know and we will give you the discount code.</p>
             </div>
           </div>
           

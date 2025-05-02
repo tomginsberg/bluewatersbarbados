@@ -48,7 +48,7 @@ export default function RootLayout({
             { text: "Amenities", href: "/amenities", isButton: false },
             { text: "Reviews", href: "/reviews", isButton: false },
             { text: "Getting Here", href: "/directions", isButton: false },
-            { text: "Book Now", href: "/book", isButton: true, variant: "default" },
+            { text: "Book Now", href: "/book", isButton: true },
           ]}
         />
         <main className="flex-grow">
