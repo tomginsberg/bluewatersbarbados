@@ -393,6 +393,29 @@ export default function BookPage() {
               </form>
             </Form>
           )}
+          
+          {/* Terms and Agreement Links */}
+          <div className="mt-8 text-center text-sm text-blue-600 space-y-2">
+            <p>Please review our terms and conditions before booking:</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mt-2">
+              <a 
+                href="/terms" 
+                className="inline-flex items-center hover:underline"
+              >
+                Terms and Conditions
+              </a>
+              <span className="hidden sm:inline text-gray-400">|</span>
+              <a 
+                href="/agreement" 
+                className="inline-flex items-center hover:underline"
+              >
+                Complete Rental Agreement
+              </a>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">
+              You&apos;ll need to agree to our terms and complete a rental agreement form after your booking is confirmed.
+            </p>
+          </div>
         </div>
       </section>
     </main>

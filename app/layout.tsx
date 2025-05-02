@@ -16,7 +16,28 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Blue Waters Villa | Barbados",
-  description: "Luxury vacation rental in Barbados",
+  description: "Luxury vacation rental in Barbados. A stunning 3-bedroom villa with plunge pool just minutes from the beautiful beaches on the west coast.",
+  openGraph: {
+    type: "website",
+    title: "Blue Waters Villa | Luxury Vacation Rental in Barbados",
+    description: "A stunning 3-bedroom villa with plunge pool just minutes from the beautiful beaches on the west coast of Barbados.",
+    url: "https://blue-waters-barbados.vercel.app/",
+    siteName: "Blue Waters Villa",
+    images: [
+      {
+        url: "https://blue-waters-barbados.vercel.app/villa/1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Blue Waters Villa in Barbados",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blue Waters Villa | Luxury Vacation Rental in Barbados",
+    description: "A stunning 3-bedroom villa with plunge pool just minutes from the beautiful beaches on the west coast of Barbados.",
+    images: ["https://blue-waters-barbados.vercel.app/villa/1.jpg"],
+  },
 };
 
 export default function RootLayout({
