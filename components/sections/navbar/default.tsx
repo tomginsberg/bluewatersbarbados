@@ -1,3 +1,4 @@
+"use client";
 import Navigation from "../../ui/navigation";
 import { Button, type ButtonProps } from "../../ui/button";
 import {
@@ -10,6 +11,7 @@ import { Menu } from "lucide-react";
 import LaunchUI from "../../logos/launch-ui";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 interface NavbarLink {
   text: string;
@@ -58,6 +60,15 @@ export default function Navbar({
   customNavigation,
   className,
 }: NavbarProps) {
+  const pathname = usePathname();
+  
+  const isActive = (href: string) => {
+    if (href === '/') {
+      return pathname === '/';
+    }
+    return pathname.startsWith(href);
+  };
+
   return (
     <header className={cn("sticky top-0 z-50 p-0", className)}>
       
@@ -92,9 +103,15 @@ export default function Navbar({
                 <a
                   key={index}
                   href={action.href}
-                  className="hidden text-lg md:block"
+                  className={cn(
+                    "hidden text-lg md:block relative",
+                    isActive(action.href) && "text-blue-600 font-medium"
+                  )}
                 >
                   {action.text}
+                  {isActive(action.href) && (
+                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600 rounded-full" />
+                  )}
                 </a>
               ),
             )}
@@ -121,9 +138,15 @@ export default function Navbar({
                     <a
                       key={index}
                       href={link.href}
-                      className="text-muted-foreground hover:text-foreground"
+                      className={cn(
+                        "text-muted-foreground hover:text-foreground relative pl-2",
+                        isActive(link.href) && "text-blue-600 font-medium"
+                      )}
                     >
                       {link.text}
+                      {isActive(link.href) && (
+                        <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-blue-600 rounded-full" />
+                      )}
                     </a>
                   ))}
                 </nav>
