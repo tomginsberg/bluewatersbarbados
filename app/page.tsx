@@ -1,6 +1,16 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { 
+  FadeIn, 
+  SlideInLeft, 
+  SlideInRight, 
+  HoverImage,
+  StaggerContainer,
+  StaggerItem
+} from "@/components/animations";
 
 export default function Home() {
   const villaFeatures = [
@@ -22,7 +32,7 @@ export default function Home() {
     },
     {
       id: 4,
-      title: "",
+      title: "Relax Outside",
       description: "Super comfortable sofa to enjoy a cold drink and the warm Barbados weather. If you are still you'll see hummingbirds visiting the tropical flowers.",
     },
     {
@@ -75,54 +85,129 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center">
       {/* Hero section with first image */}
-      <section className="relative w-full h-screen">
-        <Image
-          src="/villa/1.jpg"
-          alt="Blue Waters Villa - Your private getaway"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-8 max-w-2xl mx-auto">
-            <h1 className="text-3xl md:text-5xl font-bold text-blue-900 mb-4">{villaFeatures[0].title}</h1>
-            <p className="text-base md:text-lg text-blue-800 mb-6">{villaFeatures[0].description}</p>
-            <Link href="/book" className="block text-center">
-              <Button size="lg" className="w-full md:w-auto text-lg px-8 py-6">Book Your Stay</Button>
-            </Link>
-          </div>
+      <section className="w-full p-4 md:p-6">
+        <div className="flex flex-col md:flex-row gap-6 lg:gap-12 items-center bg-blue-100 rounded-2xl overflow-hidden shadow-lg">
+          <motion.div 
+            className="relative w-full md:w-3/4 aspect-[4/3] md:aspect-auto md:h-[80vh]"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <Image
+              src="/villa/1.jpg"
+              alt="Blue Waters Villa - Your private getaway"
+              fill
+              className="object-cover rounded-2xl"
+              priority
+            />
+          </motion.div>
+
+          <motion.div 
+            className="w-full md:w-1/4 p-6 md:p-8 lg:p-12"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            <StaggerContainer delayChildren={0.4} staggerChildren={0.2}>
+              <StaggerItem>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-900 mb-4">{villaFeatures[0].title}</h1>
+              </StaggerItem>
+              <StaggerItem>
+                <p className="text-base md:text-lg text-blue-800 mb-6">{villaFeatures[0].description}</p>
+              </StaggerItem>
+              <StaggerItem>
+                <Link href="/book" className="block">
+                  <motion.div 
+                    whileHover={{ scale: 1.05 }} 
+                    whileTap={{ scale: 0.98 }}
+                    className="mt-4"
+                  >
+                    <Button size="lg" className="px-8 py-6 bg-blue-600 hover:bg-blue-700">Book Your Stay</Button>
+                  </motion.div>
+                </Link>
+              </StaggerItem>
+            </StaggerContainer>
+          </motion.div>
         </div>
       </section>
 
       {/* Alternating image/text sections */}
       {villaFeatures.slice(1).map((feature, index) => {
-        const isEven = index % 2 === 0;
+        const isEven = index % 2 === 1;
         return (
           <section 
             key={feature.id} 
-            className={`w-full flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} min-h-[500px]`}
+            className={`w-full flex flex-col ${isEven ? 'md:flex-row bg-blue-50' : 'md:flex-row-reverse bg-blue-100'} min-h-[500px]`}
           >
-            <div className="relative w-full md:w-1/2 h-[400px] md:h-auto">
-              <Image
-                src={`/villa/${feature.id}.jpg`}
-                alt={feature.title || `Blue Waters Villa feature`}
-                fill
-                className="object-cover"
-              />
+            <div className="relative w-full md:w-1/2 p-4 md:p-6">
+              {isEven ? (
+                <SlideInLeft>
+                  <HoverImage>
+                    <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-md">
+                      <Image
+                        src={`/villa/${feature.id}.jpg`}
+                        alt={feature.title || `Blue Waters Villa feature`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </HoverImage>
+                </SlideInLeft>
+              ) : (
+                <SlideInRight>
+                  <HoverImage>
+                    <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-md">
+                      <Image
+                        src={`/villa/${feature.id}.jpg`}
+                        alt={feature.title || `Blue Waters Villa feature`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </HoverImage>
+                </SlideInRight>
+              )}
             </div>
-            <div className={`w-full md:w-1/2 flex flex-col justify-center p-8 md:p-12 ${isEven ? 'bg-blue-50' : 'bg-blue-100'}`}>
-              {feature.title && (
-                <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-blue-900">{feature.title}</h2>
-              )}
-              <p className="text-lg text-blue-800">{feature.description}</p>
-              {feature.showBookButton && (
-                <div className="mt-6">
-                  <Link href="/book">
-                    <Button size="lg">Book Your Stay</Button>
-                  </Link>
-                </div>
-              )}
+            <div className={`w-full md:w-1/2 flex flex-col justify-center p-8 md:p-12`}>
+              <FadeIn delay={0.2}>
+                {feature.title && (
+                  <motion.h2 
+                    className="text-4xl md:text-5xl font-semibold mb-4 text-blue-900"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                    viewport={{ once: true }}
+                  >
+                    {feature.title}
+                  </motion.h2>
+                )}
+                <motion.p 
+                  className="text-2xl text-blue-800"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  {feature.description}
+                </motion.p>
+                {feature.showBookButton && (
+                  <motion.div 
+                    className="mt-6"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
+                    viewport={{ once: true }}
+                  >
+                    <Link href="/book">
+                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                        <Button size="lg">Book Your Stay</Button>
+                      </motion.div>
+                    </Link>
+                  </motion.div>
+                )}
+              </FadeIn>
             </div>
           </section>
         );
@@ -130,15 +215,40 @@ export default function Home() {
 
       {/* Call to action at the bottom */}
       <section className="w-full py-16 bg-blue-900 text-white text-center">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Experience the perfect Caribbean getaway</h2>
-          <p className="text-xl mb-8">Your dream vacation is waiting at Blue Waters Villa, Barbados</p>
-          <Link href="/book">
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6 text-black border-white hover:bg-white hover:text-blue-900">
-              Book Your Stay
-            </Button>
-          </Link>
-        </div>
+        <FadeIn>
+          <div className="max-w-4xl mx-auto px-4">
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold mb-6"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              Experience the perfect Caribbean getaway
+            </motion.h2>
+            <motion.p 
+              className="text-xl mb-8"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Your dream vacation is waiting at Blue Waters Villa, Barbados
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <Link href="/book">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6 text-white border-white bg-blue-800/30 hover:bg-white hover:text-blue-900 rounded-xl shadow-md">
+                    Book Your Stay
+                  </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </FadeIn>
       </section>
     </main>
   );

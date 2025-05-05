@@ -3,9 +3,19 @@ import { Star, Quote, MapPin } from "lucide-react";
 export default function ReviewsPage() {
   const reviews = [
     {
+      text: "The villa is very beautifully decorated and spacious, we really enjoyed our stay there and felt very at home in this luxurious house! We really enjoyed swimming in the pool and walking to the beach to hang out on the sand. The beaches near the villa are beautiful and calm with soft, white sand. Beach chairs and great food are available at the beach near Ju'jus which is a 10 minute walk. Peter and Charlotte were very quick to respond and once we arrived, Ja-Net was very helpful. We definitely recommend this beautiful villa!",
+      author: "Hannah",
+      date: "February 2025"
+    },
+    {
+      text: "Charlotte and Peter's home is truly beautiful and we were delighted to be able to stay there during our visit to Holetown.\n    The house is larger than it appears in the pictures and every detail to make one comfortable has been considered. The backyard patio with plunge pool is a lovely place to relax after a long day in the sun! The upstairs bedrooms are quite private from the downstairs which was lovely as another couple stayed with us.\n   The walk to the beach was very easy once we had first found our way and the Alleyne's bay beach Charlotte and Peter recommended is quite long with quieter stretches for swimming, as well as higher swells in some parts. Water sports are sometimes available but not intrusive. Ju ju's beach bar has delicious food and drinks all day and Rico saved our favourite beach loungers for us. We stayed until sunset each day. We will definitely stay here again next time we are in Barbados, hopefully for a longer visit.",
+      author: "Louise",
+      date: "February 2025"
+    },
+    {
       text: "We have spent months traveling in Barbados in the past couple of years, and have stayed in several different places. Blue Waters Villa is a perfect rental in Barbados: the house has lots of space, is nicely decorated, has a great outdoor space and plunge pool and has all amenities required. Location in Porters is perfect, near the beach, close to Holetown and Speightstown, and near several restaurants, bars and a lovely bakery (la Baguette). We also worked remotely from the villa, and the wifi is fast and reliable. Peter and Charlotte are fantastic hosts, and we look forward to being back soon!",
       author: "Francois Paradis",
-      date: "3 years ago"
+      date: "January 2024"
     },
     {
       text: "Everything that you read about Blue Waters Villa and the surrounding area is completely accurate. A luxury villa furnished to a very high standard with everything you could wish for, in a great location, minutes away from 2 fantastic beaches. Communication from Peter & Charlotte was faultless from start to finish, and Ja'Net was very helpful during our stay.",
@@ -20,16 +30,6 @@ export default function ReviewsPage() {
     {
       text: "We thoroughly enjoyed our stay at this very spacious, beautifully decorated villa. Peter and Charlotte were a pleasure to deal with and JaNet very welcoming and thorough when we arrived. The villa is in a great location - perfect for beaches, restaurants and bars! We'll definitely be booking again - would highly recommend. Thank you :)",
       author: "Sharnel",
-      date: "5 years ago"
-    },
-    {
-      text: "The villa is very beautifully decorated and spacious, we really enjoyed our stay there and felt very at home in this luxurious house! We really enjoyed swimming in the pool and walking to the beach to hang out on the sand. The beaches near the villa are beautiful and calm with soft, white sand. Beach chairs and great food are available at the beach near Ju'jus which is a 10 minute walk. Peter and Charlotte were very quick to respond and once we arrived, Ja-Net was very helpful. We definitely recommend this beautiful villa!",
-      author: "Hannah",
-      date: "5 years ago"
-    },
-    {
-      text: "Charlotte and Peter's home is truly beautiful and we were delighted to be able to stay there during our visit to Holetown.\n    The house is larger than it appears in the pictures and every detail to make one comfortable has been considered. The backyard patio with plunge pool is a lovely place to relax after a long day in the sun! The upstairs bedrooms are quite private from the downstairs which was lovely as another couple stayed with us.\n   The walk to the beach was very easy once we had first found our way and the Alleyne's bay beach Charlotte and Peter recommended is quite long with quieter stretches for swimming, as well as higher swells in some parts. Water sports are sometimes available but not intrusive. Ju ju's beach bar has delicious food and drinks all day and Rico saved our favourite beach loungers for us. We stayed until sunset each day. We will definitely stay here again next time we are in Barbados, hopefully for a longer visit.",
-      author: "Louise",
       date: "5 years ago"
     },
     {

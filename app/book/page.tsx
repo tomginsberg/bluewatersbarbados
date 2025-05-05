@@ -102,7 +102,7 @@ export default function BookPage() {
           <div className="aspect-video w-full rounded-lg overflow-hidden border-2 border-gray-200 shadow-md mb-6">
             {/* Replace with the actual Google Calendar embed code */}
             <iframe 
-              src="https://calendar.google.com/calendar/embed?src=placeholder%40group.calendar.google.com&ctz=America%2FBarbados" 
+              src="https://calendar.google.com/calendar/embed?src=bluewatersbarbados21%40gmail.com&ctz=America%2FToronto" 
               style={{ border: 0 }} 
               width="100%" 
               height="100%" 
@@ -121,7 +121,7 @@ export default function BookPage() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-blue-900 mb-6 text-center">Rental Rates</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h3 className="text-xl font-semibold text-blue-900 mb-4 border-b border-blue-100 pb-2">
                 Apr 1 – Dec 14, 2025
@@ -210,22 +210,30 @@ export default function BookPage() {
             <p className="text-blue-800">
               Rates are not listed; please call for pricing. We are happy to book dates further in the future.
             </p>
+          </div> */}
+
+          <div>
+          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSAkc3vsMduK_AOrL-SJcLpt21IotVMFuyl6gT5xlwcSfddkhnIc8uTjMs7QL7dQ7FUVydD2Tpg_1bA/pubembed?start=false&loop=false&delayms=60000" className="w-full h-[50vh]" allowFullScreen={true}/>
           </div>
+
+
           
-          <div className="bg-blue-100 rounded-lg p-6">
+          <div className="bg-blue-100 rounded-lg p-6 mt-6">
             <h3 className="text-xl font-semibold text-blue-900 mb-4">Additional Information</h3>
-            <ul className="space-y-3 text-blue-800">
-              <li>There is an additional one-time fee for cleaning of $95 USD per booking</li>
-              <li>Refundable damage deposit of $400 USD (or £300) will be charged at booking and refunded within one week of departure</li>
-              <li>7 night minimum stay</li>
-              <li>50% of the total rental price is payable on booking. The remaining 50% is due 8 weeks before your arrival</li>
-              <li>We accept payment by PayPal or direct bank transfer in USD, CAD or GBP</li>
-              <li>If you would like to pay by PayPal we will need to add the 4% fee they charge us to your total</li>
-              <li>Blue Waters Villa is in a very quiet neighbourhood and our neighbours are our friends. No parties or music are allowed</li>
+            <ul className="space-y-3 text-blue-800 list-disc pl-5">
+              <li>There is an additional one-time fee for cleaning of $95 USD per booking.</li>
+              <li>Refundable damage deposit of $400 USD (or £300) will be charged at booking and refunded within one week of departure.</li>
+              <li>7 night minimum stay.</li>
+              <li>50% of the total rental price is payable on booking. The remaining 50% is due 8 weeks before your arrival.</li>
+              <li>We accept payment by PayPal or direct bank transfer in USD, CAD or GBP.</li>
+              <li>If you would like to pay by PayPal we will need to add the 4% fee they charge us to your total.</li>
+              <li>Blue Waters Villa is in a very quiet neighbourhood and our neighbours are our friends. No parties or music are allowed.</li>
             </ul>
           </div>
         </div>
       </section>
+
+      
 
       {/* Booking Form Section */}
       <section className="w-full py-12 px-4 bg-white">
