@@ -96,7 +96,14 @@ export default function AmenitiesPage() {
       <section className="w-full py-12 px-4 bg-white">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {amenityCategories.map((category, index) => (
-            <div key={index} className="bg-blue-50 rounded-lg p-6 shadow-sm">
+            <div 
+              key={index} 
+              className={`bg-blue-50 rounded-lg p-6 shadow-sm ${
+                index === amenityCategories.length - 1 && amenityCategories.length % 2 !== 0 
+                  ? "md:col-span-2" 
+                  : ""
+              }`}
+            >
               <h2 className="text-2xl font-semibold text-blue-900 mb-4 border-b border-blue-200 pb-2">
                 {category.title}
               </h2>
