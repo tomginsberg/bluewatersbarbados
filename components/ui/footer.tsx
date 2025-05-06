@@ -23,6 +23,13 @@ export default function Footer() {
                 +1 416 995 6444
               </a>
             </div>
+            <div className="flex items-center gap-3">
+              <Phone className="h-5 w-5 text-blue-600" />
+              <a href="tel:001 416 995 6444" className="text-blue-600 hover:underline">
+              001 416 995 6444 
+              </a>
+            </div>
+            
             
             <p className="italic text-gray-600">Please call anytime if you have questions or feel free to email.</p>
           </div>
