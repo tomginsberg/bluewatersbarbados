@@ -104,7 +104,7 @@ export default function BookPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Reserve your dream vacation at Blue Waters Villa
+            We'd be so pleased to welcome you to Blue Waters Villa.  Please tell us about your group and when you'd like to visit and we'll get back to you within one day. 
           </motion.p>
         </div>
       </section>
@@ -113,7 +113,7 @@ export default function BookPage() {
       <section className="w-full py-8 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-lg text-blue-800 mb-4">
-            Before booking, check our current rates and availability:
+            Before booking, check our current rates and availability
           </p>
           <Link href="/rates-and-availability">
             <Button variant="outline" className="bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100">
@@ -314,6 +314,8 @@ export default function BookPage() {
           </div>
         </div>
       </section>
+
+      
     </main>
   );
 }
