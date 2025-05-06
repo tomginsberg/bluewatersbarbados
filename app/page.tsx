@@ -85,10 +85,10 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center">
       {/* Hero section with first image */}
-      <section className="w-full p-4 md:p-6">
-        <div className="flex flex-col md:flex-row gap-6 lg:gap-12 items-center bg-blue-100 rounded-2xl overflow-hidden shadow-lg">
+      <section className="w-full p-4 lg:p-6">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-center bg-blue-100 rounded-2xl overflow-hidden shadow-lg">
           <motion.div 
-            className="relative w-full md:w-3/4 aspect-[4/3] md:aspect-auto md:h-[80vh]"
+            className="relative w-full lg:w-2/3 xl:w-3/4 aspect-[4/3] lg:aspect-auto lg:h-[50vh] xl:h-[80vh]"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -97,13 +97,13 @@ export default function Home() {
               src="/villa/1.jpg"
               alt="Blue Waters Villa - Your private getaway"
               fill
-              className="object-cover rounded-2xl"
+              className="ms-4 object-cover rounded-2xl"
               priority
             />
           </motion.div>
 
           <motion.div 
-            className="w-full md:w-1/4 p-6 md:p-8 lg:p-12"
+            className="w-full lg:w-1/3 xl:w-1/4 p-6 lg:p-8 xl:p-12"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
