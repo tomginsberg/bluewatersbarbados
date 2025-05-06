@@ -6,6 +6,8 @@ import * as z from "zod";
 import { CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -88,155 +90,41 @@ export default function BookPage() {
       {/* Header section */}
       <section className="w-full py-16 bg-blue-100">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">Book Your Stay</h1>
-          <p className="text-lg md:text-xl text-blue-800">
-            Check availability and contact us to reserve your dream vacation at Blue Waters Villa
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold text-blue-900 mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Book Your Stay
+          </motion.h1>
+          <motion.p 
+            className="text-lg md:text-xl text-blue-800"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            Reserve your dream vacation at Blue Waters Villa
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Link to Rates & Availability */}
+      <section className="w-full py-8 px-4 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-lg text-blue-800 mb-4">
+            Before booking, check our current rates and availability:
           </p>
+          <Link href="/rates-and-availability">
+            <Button variant="outline" className="bg-blue-50 border-blue-200 text-blue-700 hover:bg-blue-100">
+              View Rates & Availability
+            </Button>
+          </Link>
         </div>
       </section>
-
-      {/* Availability Calendar Section */}
-      <section className="w-full py-12 px-4 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl font-bold text-blue-900 mb-6 text-center">Check Availability</h2>
-          <div className="aspect-video w-full rounded-lg overflow-hidden border-2 border-gray-200 shadow-md mb-6">
-            {/* Replace with the actual Google Calendar embed code */}
-            <iframe 
-              src="https://calendar.google.com/calendar/embed?src=bluewatersbarbados21%40gmail.com&ctz=America%2FToronto" 
-              style={{ border: 0 }} 
-              width="100%" 
-              height="100%" 
-              frameBorder="0" 
-              scrolling="no"
-            ></iframe>
-          </div>
-          <p className="text-center text-blue-600 italic">
-            The calendar shows our current availability. Dates marked are already booked.
-          </p>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section className="w-full py-12 px-4 bg-blue-50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-blue-900 mb-6 text-center">Rental Rates</h2>
-          
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-blue-900 mb-4 border-b border-blue-100 pb-2">
-                Apr 1 – Dec 14, 2025
-              </h3>
-              <ul className="space-y-2">
-                <li className="flex justify-between">
-                  <span>1 bedroom (1-2 people):</span>
-                  <span className="font-semibold">$280 USD/night</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>2 bedrooms (up to 4 people):</span>
-                  <span className="font-semibold">$360 USD/night</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>3 bedrooms (up to 6 people):</span>
-                  <span className="font-semibold">$440 USD/night</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-blue-900 mb-4 border-b border-blue-100 pb-2">
-                Dec 15, 2025 – Jan 12, 2026 (Peak)
-              </h3>
-              <ul className="space-y-2">
-                <li className="flex justify-between">
-                  <span>1 bedroom (1-2 people):</span>
-                  <span className="font-semibold">$590 USD/night</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>2 bedrooms (up to 4 people):</span>
-                  <span className="font-semibold">$660 USD/night</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>3 bedrooms (up to 6 people):</span>
-                  <span className="font-semibold">$730 USD/night</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-blue-900 mb-4 border-b border-blue-100 pb-2">
-                Jan 13 – Apr 12, 2026
-              </h3>
-              <ul className="space-y-2">
-                <li className="flex justify-between">
-                  <span>1 bedroom (1-2 people):</span>
-                  <span className="font-semibold">$380 USD/night</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>2 bedrooms (up to 4 people):</span>
-                  <span className="font-semibold">$460 USD/night</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>3 bedrooms (up to 6 people):</span>
-                  <span className="font-semibold">$540 USD/night</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-blue-900 mb-4 border-b border-blue-100 pb-2">
-                Apr 13 – Dec 14, 2026
-              </h3>
-              <ul className="space-y-2">
-                <li className="flex justify-between">
-                  <span>1 bedroom (1-2 people):</span>
-                  <span className="font-semibold">$290 USD/night</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>2 bedrooms (up to 4 people):</span>
-                  <span className="font-semibold">$370 USD/night</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>3 bedrooms (up to 6 people):</span>
-                  <span className="font-semibold">$450 USD/night</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-lg p-6 shadow-sm mb-8">
-            <h3 className="text-xl font-semibold text-blue-900 mb-4">
-              From Dec 15, 2026 onward
-            </h3>
-            <p className="text-blue-800">
-              Rates are not listed; please call for pricing. We are happy to book dates further in the future.
-            </p>
-          </div> */}
-
-          <div>
-          <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSAkc3vsMduK_AOrL-SJcLpt21IotVMFuyl6gT5xlwcSfddkhnIc8uTjMs7QL7dQ7FUVydD2Tpg_1bA/pubembed?start=false&loop=false&delayms=60000" className="w-full h-[50vh]" allowFullScreen={true}/>
-          </div>
-
-
-          
-          <div className="bg-blue-100 rounded-lg p-6 mt-6">
-            <h3 className="text-xl font-semibold text-blue-900 mb-4">Additional Information</h3>
-            <ul className="space-y-3 text-blue-800 list-disc pl-5">
-              <li>There is an additional one-time fee for cleaning of $95 USD per booking.</li>
-              <li>Refundable damage deposit of $400 USD (or £300) will be charged at booking and refunded within one week of departure.</li>
-              <li>7 night minimum stay.</li>
-              <li>50% of the total rental price is payable on booking. The remaining 50% is due 8 weeks before your arrival.</li>
-              <li>We accept payment by PayPal or direct bank transfer in USD, CAD or GBP.</li>
-              <li>If you would like to pay by PayPal we will need to add the 4% fee they charge us to your total.</li>
-              <li>Blue Waters Villa is in a very quiet neighbourhood and our neighbours are our friends. No parties or music are allowed.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      
 
       {/* Booking Form Section */}
-      <section className="w-full py-12 px-4 bg-white">
+      <section className="w-full py-12 px-4 bg-blue-50">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold text-blue-900 mb-6 text-center">Contact Us to Book</h2>
           
@@ -247,7 +135,7 @@ export default function BookPage() {
             </div>
           ) : (
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 bg-white p-8 rounded-lg shadow-sm">
                 <FormField
                   control={form.control}
                   name="name"
