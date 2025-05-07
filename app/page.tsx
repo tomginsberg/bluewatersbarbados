@@ -89,7 +89,7 @@ export default function Home() {
       <section className="w-full p-4 lg:p-6">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-center bg-blue-100 rounded-2xl overflow-hidden shadow-lg">
           <motion.div 
-            className="relative w-full lg:w-2/3 xl:w-3/4 aspect-[4/3] lg:aspect-auto lg:h-[50vh] xl:h-[80vh]"
+            className="relative w-full lg:w-2/3 xl:w-3/4 aspect-[4/3] lg:aspect-auto lg:h-[50vh] xl:h-[80vh] p-4"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -98,7 +98,7 @@ export default function Home() {
               src="/villa/1.jpg"
               alt="Blue Waters Villa - Your private getaway"
               fill
-              className="ms-4 object-cover rounded-2xl"
+              className="object-cover rounded-2xl"
               priority
             />
           </motion.div>
