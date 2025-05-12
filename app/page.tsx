@@ -86,48 +86,48 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center">
       {/* Hero section with first image */}
-      <section className="w-full p-4 lg:p-6">
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-center bg-blue-100 rounded-2xl overflow-hidden shadow-lg">
+      <section className="w-full bg-blue-100 py-8">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 px-4 lg:px-8">
           <motion.div 
-            className="relative w-full lg:w-2/3 xl:w-3/4 aspect-[4/3] lg:aspect-auto lg:h-[50vh] xl:h-[80vh] p-4"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+        className="relative w-full lg:w-2/3 xl:w-3/4 aspect-[4/3] lg:aspect-auto lg:h-[50vh] xl:h-[80vh] overflow-hidden rounded-2xl shadow-md"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <Image
-              src="/villa/1.jpg"
-              alt="Blue Waters Villa - Your private getaway"
-              fill
-              className="object-cover rounded-2xl"
-              priority
-            />
+        <Image
+          src="/villa/1.jpg"
+          alt="Blue Waters Villa - Your private getaway"
+          fill
+          className="object-cover"
+          priority
+        />
           </motion.div>
 
           <motion.div 
-            className="w-full lg:w-1/3 xl:w-1/4 p-6 lg:p-8 xl:p-12"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
+        className="w-full lg:w-1/3 xl:w-1/4 text-center lg:text-left"
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <StaggerContainer delayChildren={0.4} staggerChildren={0.2}>
-              <StaggerItem>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-900 mb-4">{villaFeatures[0].title}</h1>
-              </StaggerItem>
-              <StaggerItem>
-                <p className="text-base md:text-lg text-blue-800 mb-6">{villaFeatures[0].description}</p>
-              </StaggerItem>
-              <StaggerItem>
-                <Link href="/book" className="block">
-                  <motion.div 
-                    whileHover={{ scale: 1.05 }} 
-                    whileTap={{ scale: 0.98 }}
-                    className="mt-4"
-                  >
-                    <Button size="lg" className="px-8 py-6 bg-blue-600 hover:bg-blue-700">Book Your Stay</Button>
-                  </motion.div>
-                </Link>
-              </StaggerItem>
-            </StaggerContainer>
+        <StaggerContainer delayChildren={0.4} staggerChildren={0.2}>
+          <StaggerItem>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-900 mb-4">{villaFeatures[0].title}</h1>
+          </StaggerItem>
+          <StaggerItem>
+            <p className="text-base md:text-lg text-blue-800 mb-6">{villaFeatures[0].description}</p>
+          </StaggerItem>
+          <StaggerItem>
+            <Link href="/book">
+          <motion.div 
+            whileHover={{ scale: 1.05 }} 
+            whileTap={{ scale: 0.98 }}
+            className="inline-block"
+          >
+            <Button size="lg" className="px-8 py-6 bg-blue-600 hover:bg-blue-700">Book Your Stay</Button>
+          </motion.div>
+            </Link>
+          </StaggerItem>
+        </StaggerContainer>
           </motion.div>
         </div>
       </section>
@@ -138,7 +138,7 @@ export default function Home() {
         return (
           <section 
             key={feature.id} 
-            className={`w-full flex flex-col ${isEven ? 'md:flex-row bg-blue-50' : 'md:flex-row-reverse bg-blue-100'} min-h-[500px]`}
+            className={`w-full flex flex-col ${isEven ? 'md:flex-row bg-blue-100' : 'md:flex-row-reverse bg-blue-50'} min-h-[500px]`}
           >
             <div className="relative w-full md:w-1/2 p-4 md:p-6">
               {isEven ? (

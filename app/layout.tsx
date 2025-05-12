@@ -16,11 +16,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Blue Waters Villa | Barbados",
-  description: "Luxury vacation rental in Barbados. A stunning 3-bedroom villa with plunge pool just minutes from the beautiful beaches on the west coast.",
+  description:
+    "Luxury vacation rental in Barbados. A stunning 3-bedroom villa with plunge pool just minutes from the beautiful beaches on the west coast.",
   openGraph: {
     type: "website",
     title: "Blue Waters Villa | Luxury Vacation Rental in Barbados",
-    description: "A stunning 3-bedroom villa with plunge pool just minutes from the beautiful beaches on the west coast of Barbados.",
+    description:
+      "A stunning 3-bedroom villa with plunge pool just minutes from the beautiful beaches on the west coast of Barbados.",
     url: "https://blue-waters-barbados.vercel.app/",
     siteName: "Blue Waters Villa",
     images: [
@@ -35,8 +37,12 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Blue Waters Villa | Luxury Vacation Rental in Barbados",
-    description: "A stunning 3-bedroom villa with plunge pool just minutes from the beautiful beaches on the west coast of Barbados.",
+    description:
+      "A stunning 3-bedroom villa with plunge pool just minutes from the beautiful beaches on the west coast of Barbados.",
     images: ["https://blue-waters-barbados.vercel.app/villa/1.jpg"],
+  },
+  icons: {
+    icon: "/favicon.png",
   },
 };
 
@@ -47,11 +53,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.png" sizes="any" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
-        <Navbar 
-          logo={null}
+        <Navbar
+          logo={"/logo.png"}
           name="Blue Waters Villa"
           homeUrl="/"
           showNavigation={false}
@@ -68,15 +77,17 @@ export default function RootLayout({
             { text: "The Villa", href: "/", isButton: false },
             { text: "The Area", href: "/area", isButton: false },
             { text: "Amenities", href: "/amenities", isButton: false },
-            { text: "Rates & Availability", href: "/rates-and-availability", isButton: false },
+            {
+              text: "Rates & Availability",
+              href: "/rates-and-availability",
+              isButton: false,
+            },
             { text: "Reviews", href: "/reviews", isButton: false },
             { text: "Getting Here", href: "/directions", isButton: false },
             { text: "Book Now", href: "/book", isButton: true },
           ]}
         />
-        <main className="flex-grow">
-          {children}
-        </main>
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>

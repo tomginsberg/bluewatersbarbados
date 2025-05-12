@@ -8,10 +8,10 @@ import {
 } from "../../ui/navbar";
 import { Sheet, SheetContent, SheetTrigger } from "../../ui/sheet";
 import { Menu } from "lucide-react";
-import LaunchUI from "../../logos/launch-ui";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 interface NavbarLink {
   text: string;
@@ -27,7 +27,7 @@ interface NavbarActionProps {
 }
 
 interface NavbarProps {
-  logo?: ReactNode;
+  logo?: string;
   name?: string;
   homeUrl?: string;
   mobileLinks?: NavbarLink[];
@@ -38,7 +38,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({
-  logo = <LaunchUI />,
+  logo = "/logo.png",
   name = "Launch UI",
   homeUrl = "https://www.launchuicomponents.com/",
   mobileLinks = [
@@ -70,15 +70,20 @@ export default function Navbar({
   return (
     <header className={cn("sticky top-0 z-50 p-0", className)}>
       
-      <div className="max-w-container relative mx-auto px-4 py-2 bg-background">
+      <div className="max-w-container relative mx-auto px-4 py-0 bg-background shadow-xl">
         <NavbarComponent>
           <NavbarLeft>
             <a
               href={homeUrl}
-              className="flex items-center gap-2 text-2xl font-bold"
+              className="flex items-center gap-2 text-2xl font-bold py-3 ps-4"
             >
-              {logo}
-              {name}
+              <Image
+              src={logo}
+              alt={name}
+              width={150}
+              height={100}
+              style={{ objectFit: "contain" }}
+              />
             </a>
             {showNavigation && (customNavigation || <Navigation />)}
           </NavbarLeft>
